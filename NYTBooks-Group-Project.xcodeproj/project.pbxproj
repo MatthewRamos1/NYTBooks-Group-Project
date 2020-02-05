@@ -12,7 +12,7 @@
 		0C14EF4F23EB54BA009BC63E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C14EF4E23EB54BA009BC63E /* ViewController.swift */; };
 		0C14EF5423EB54BC009BC63E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C14EF5323EB54BC009BC63E /* Assets.xcassets */; };
 		0C14EF5723EB54BC009BC63E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C14EF5523EB54BC009BC63E /* LaunchScreen.storyboard */; };
-		0C14EF6323EB55AC009BC63E /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0C14EF6223EB55AC009BC63E /* ImageKit */; };
+		0C14EF6A23EB62A1009BC63E /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0C14EF6923EB62A1009BC63E /* ImageKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C14EF6323EB55AC009BC63E /* ImageKit in Frameworks */,
+				0C14EF6A23EB62A1009BC63E /* ImageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +139,7 @@
 			);
 			name = "NYTBooks-Group-Project";
 			packageProductDependencies = (
-				0C14EF6223EB55AC009BC63E /* ImageKit */,
+				0C14EF6923EB62A1009BC63E /* ImageKit */,
 			);
 			productName = "NYTBooks-Group-Project";
 			productReference = 0C14EF4723EB54BA009BC63E /* NYTBooks-Group-Project.app */;
@@ -170,7 +170,7 @@
 			);
 			mainGroup = 0C14EF3E23EB54BA009BC63E;
 			packageReferences = (
-				0C14EF6123EB55AC009BC63E /* XCRemoteSwiftPackageReference "ImageKit" */,
+				0C14EF6823EB62A1009BC63E /* XCRemoteSwiftPackageReference "ImageKit" */,
 			);
 			productRefGroup = 0C14EF4823EB54BA009BC63E /* Products */;
 			projectDirPath = "";
@@ -392,7 +392,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0C14EF6123EB55AC009BC63E /* XCRemoteSwiftPackageReference "ImageKit" */ = {
+		0C14EF6823EB62A1009BC63E /* XCRemoteSwiftPackageReference "ImageKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/alexpaul/ImageKit";
 			requirement = {
@@ -403,9 +403,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0C14EF6223EB55AC009BC63E /* ImageKit */ = {
+		0C14EF6923EB62A1009BC63E /* ImageKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0C14EF6123EB55AC009BC63E /* XCRemoteSwiftPackageReference "ImageKit" */;
+			package = 0C14EF6823EB62A1009BC63E /* XCRemoteSwiftPackageReference "ImageKit" */;
 			productName = ImageKit;
 		};
 /* End XCSwiftPackageProductDependency section */
