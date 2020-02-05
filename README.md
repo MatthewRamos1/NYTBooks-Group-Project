@@ -1,7 +1,3 @@
-# NYTBooks-Group-Project
-NYT Bestsellers app that displays all book categories and allows the user to favorite books.
-
-
 # Github Instructions
 - Create a empty repository on one group member's account. Do not fork the instructions repo (the one you are looking at right now); you won't need any of the assets in here.
 - Each member should clone down that repository to their machine.
