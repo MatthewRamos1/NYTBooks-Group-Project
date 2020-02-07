@@ -16,6 +16,9 @@
 		0C14EFC323EDBE2A009BC63E /* NYTTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C14EFC223EDBE2A009BC63E /* NYTTabBarController.swift */; };
 		0C14EFC523EDBFB8009BC63E /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C14EFC423EDBFB8009BC63E /* FavoritesViewController.swift */; };
 		0C14EFC723EDBFD2009BC63E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C14EFC623EDBFD2009BC63E /* SettingsViewController.swift */; };
+		0C14EFD123EE0FE4009BC63E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C14EFD023EE0FE4009BC63E /* SettingsView.swift */; };
+		0C14EFD323EE1080009BC63E /* NYTAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C14EFD223EE1080009BC63E /* NYTAPIClient.swift */; };
+		0C14EFD523EE1096009BC63E /* BestSellerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C14EFD423EE1096009BC63E /* BestSellerData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		0C14EFC223EDBE2A009BC63E /* NYTTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTTabBarController.swift; sourceTree = "<group>"; };
 		0C14EFC423EDBFB8009BC63E /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		0C14EFC623EDBFD2009BC63E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0C14EFD023EE0FE4009BC63E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0C14EFD223EE1080009BC63E /* NYTAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTAPIClient.swift; sourceTree = "<group>"; };
+		0C14EFD423EE1096009BC63E /* BestSellerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestSellerData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 		0C14EF5E23EB5534009BC63E /* Network Services */ = {
 			isa = PBXGroup;
 			children = (
+				0C14EFD223EE1080009BC63E /* NYTAPIClient.swift */,
 			);
 			path = "Network Services";
 			sourceTree = "<group>";
@@ -88,6 +95,7 @@
 		0C14EF5F23EB5549009BC63E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0C14EFD423EE1096009BC63E /* BestSellerData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -120,6 +128,7 @@
 		0C14EF6623EB584E009BC63E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0C14EFD023EE0FE4009BC63E /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -207,6 +216,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C14EFD123EE0FE4009BC63E /* SettingsView.swift in Sources */,
+				0C14EFD323EE1080009BC63E /* NYTAPIClient.swift in Sources */,
+				0C14EFD523EE1096009BC63E /* BestSellerData.swift in Sources */,
 				0C14EF4F23EB54BA009BC63E /* ViewController.swift in Sources */,
 				0C14EF4B23EB54BA009BC63E /* AppDelegate.swift in Sources */,
 				0C14EF4D23EB54BA009BC63E /* SceneDelegate.swift in Sources */,
