@@ -71,7 +71,7 @@ class BookCell: UICollectionViewCell {
   func configureCell(with book: Books) {
     titleLabel.text = book.title
     descriptionLabel.text = book.description
-    imageView.getImage(with: book.book_image) { [weak self] (result) in
+    imageView.getImage(with: book.bookImage) { [weak self] (result) in
       DispatchQueue.main.async {
         switch result {
         case .failure:

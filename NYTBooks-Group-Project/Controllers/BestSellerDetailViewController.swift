@@ -11,6 +11,8 @@ import UIKit
 class BestSellerDetailViewController: UIViewController {
     
     private let bestSellerDetailView = BestSellerDetailView()
+  
+  public var book: Books?
 
     override func viewDidLoad() {
         super.viewDidLoad()
