@@ -11,15 +11,35 @@ import UIKit
 class BestSellerDetailViewController: UIViewController {
     
     private let bestSellerDetailView = BestSellerDetailView()
+  
+    public var book : Books!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-
-    }
     
     override func loadView() {
         view = bestSellerDetailView
     }
+  
+  override func viewDidLoad() {
+      super.viewDidLoad()
+      view.backgroundColor = .white
+    updateUI()
+  }
+  
+  private func updateUI() {
+    bestSellerDetailView.detailImageView.getImage(with: book.bookImage) { [weak self] (result) in
+      DispatchQueue.main.async {
+        switch result {
+        case .failure:
+          self?.bestSellerDetailView.detailImageView.image = UIImage(systemName: "book")
+        case .success(let image):
+          self?.bestSellerDetailView.detailImageView.image = image
+        }
+      }
+    }
+    bestSellerDetailView.titleLabel.text = book.title
+    bestSellerDetailView.authorNameLabel.text = book.author
+    bestSellerDetailView.textView.text = book.description
+    
+  }
 
 }

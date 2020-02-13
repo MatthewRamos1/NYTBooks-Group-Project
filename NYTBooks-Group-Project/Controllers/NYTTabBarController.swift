@@ -10,13 +10,13 @@ import UIKit
 
 class NYTTabBarController: UITabBarController {
     
-    private lazy var navController: UINavigationController = {
-        let navController = UINavigationController(rootViewController: BestSellerViewController())
+    private lazy var navController: BestSellerViewController = {
+        let navController = BestSellerViewController()
         navController.tabBarItem = UITabBarItem(title: "Best Sellers", image: UIImage(systemName: "star.fill"), tag: 0)
         return navController
     }()
     
-    private lazy var favoritesViewController: UIViewController = {
+    private lazy var favoritesViewController: FavoritesViewController = {
         let vc = FavoritesViewController()
         vc.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "heart.fill"), tag: 1)
         return vc
@@ -31,6 +31,6 @@ class NYTTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewControllers = [navController, favoritesViewController, settingsViewController]
+        viewControllers = [UINavigationController(rootViewController: navController), UINavigationController(rootViewController: favoritesViewController), UINavigationController(rootViewController: settingsViewController)]
     }
 }

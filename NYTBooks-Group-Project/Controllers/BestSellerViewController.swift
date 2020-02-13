@@ -20,19 +20,49 @@ class BestSellerViewController: UIViewController {
     }
   }
   
+  public var list = [BookTypes]() {
+    didSet {
+      DispatchQueue.main.async {
+        self.bestSellerView.pickerView.reloadAllComponents()
+      }
+    }
+  }
+
+  public var category = String() {
+    didSet {
+      loadBooks(with: category)
+    }
+  }
   override func loadView() {
     view = bestSellerView
   }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      bestSellerView.collectionView.dataSource = self
-      bestSellerView.collectionView.register(BookCell.self, forCellWithReuseIdentifier: "bookCell")
-      loadBooks()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    bestSellerView.pickerView.dataSource = self
+    bestSellerView.pickerView.delegate = self
+    loadCategories()
+    bestSellerView.collectionView.dataSource = self
+    bestSellerView.collectionView.delegate = self
+    bestSellerView.collectionView.register(BookCell.self, forCellWithReuseIdentifier: "bookCell")
+    loadBooks(with: "hardcover-advice")
+    
+  }
+  
+  private func loadCategories() {
+    ListAPIClient.fetchList { (result) in
+      switch result {
+      case .failure(let appError):
+        print("Error: \(appError)")
+      case .success(let list):
+        self.list = list
+      }
     }
-
-  private func loadBooks() {
-    NYTAPIClient.fetchBooks(for: "") { (result) in
+  }
+  
+  private func loadBooks(with category: String) {
+    NYTAPIClient.fetchBooks(for: category) { (result) in
       switch result {
       case .failure(let appError):
         print("Error: \(appError)")
@@ -41,8 +71,6 @@ class BestSellerViewController: UIViewController {
       }
     }
   }
-  
-
 }
 
 extension BestSellerViewController : UICollectionViewDataSource {
@@ -60,5 +88,35 @@ extension BestSellerViewController : UICollectionViewDataSource {
     
     return cell
   }
+}
+
+extension BestSellerViewController : UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let book = myBooks[indexPath.row]
+    let detailVC = BestSellerDetailViewController()
+    detailVC.book = book
+    
+    navigationController?.pushViewController(detailVC, animated: true)
+  }
+}
+
+extension BestSellerViewController : UIPickerViewDataSource {
+  func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    return 1
+  }
   
+  func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    return list.count
+  }
+}
+
+extension BestSellerViewController : UIPickerViewDelegate {
+  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    return list[row].displayName
+  }
+  
+  func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    category = list[row].listNameEncoded
+    loadBooks(with: category)
+  }
 }

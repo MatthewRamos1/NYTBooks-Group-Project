@@ -21,7 +21,8 @@ class BestSellerView: UIView {
   
   public lazy var pickerView : UIPickerView = {
     let pv = UIPickerView()
-    pv.backgroundColor = .blue
+    pv.backgroundColor = .systemGroupedBackground
+    pv.tintColor = .orange
     return pv
   }()
 
