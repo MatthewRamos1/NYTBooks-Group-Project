@@ -46,3 +46,17 @@ struct BuyLinks : Codable & Equatable {
   let url : String
 }
 
+struct List : Codable & Equatable {
+  let results : [BookTypes]
+}
+
+struct BookTypes : Codable & Equatable {
+  let listName : String
+  let displayName : String
+  let listNameEncoded : String
+  private enum CodingKeys: String, CodingKey {
+    case listName = "list_name"
+    case displayName = "display_name"
+    case listNameEncoded = "list_name_encoded"
+  }
+}

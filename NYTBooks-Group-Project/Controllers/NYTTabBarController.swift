@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import DataPersistence
 
 class NYTTabBarController: UITabBarController {
+  
+  private var dataPersistence = DataPersistence<Books>(filename: "savedBooks.plist")
     
     private lazy var navController: BestSellerViewController = {
-        let navController = BestSellerViewController()
+        let navController = BestSellerViewController(dataPersistence)
         navController.tabBarItem = UITabBarItem(title: "Best Sellers", image: UIImage(systemName: "star.fill"), tag: 0)
         return navController
     }()
@@ -27,6 +30,10 @@ class NYTTabBarController: UITabBarController {
         vc.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 2)
         return vc
     }()
+  
+
+  
+
     
     
     override func viewDidLoad() {

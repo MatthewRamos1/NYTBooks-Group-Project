@@ -21,7 +21,6 @@
 		0C14EFD523EE1096009BC63E /* BestSellerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C14EFD423EE1096009BC63E /* BestSellerData.swift */; };
 		0C5758E523F5AE4F0095739E /* BestSellerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5758E423F5AE4F0095739E /* BestSellerDetailViewController.swift */; };
 		0C5758E723F5AEBD0095739E /* BestSellerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5758E623F5AEBD0095739E /* BestSellerDetailView.swift */; };
-		584116B923F5BB5700F9BCAF /* BookTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584116B823F5BB5700F9BCAF /* BookTypes.swift */; };
 		584116BB23F5BD4C00F9BCAF /* ListAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584116BA23F5BD4C00F9BCAF /* ListAPIClient.swift */; };
 		5872D9EC23F4F71C0067BB9A /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5872D9EB23F4F71C0067BB9A /* BookCell.swift */; };
 		58E9839523F4DFE7001E697C /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E9839423F4DFE7001E697C /* Secrets.swift */; };
@@ -45,7 +44,6 @@
 		0C14EFD423EE1096009BC63E /* BestSellerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestSellerData.swift; sourceTree = "<group>"; };
 		0C5758E423F5AE4F0095739E /* BestSellerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestSellerDetailViewController.swift; sourceTree = "<group>"; };
 		0C5758E623F5AEBD0095739E /* BestSellerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestSellerDetailView.swift; sourceTree = "<group>"; };
-		584116B823F5BB5700F9BCAF /* BookTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTypes.swift; sourceTree = "<group>"; };
 		584116BA23F5BD4C00F9BCAF /* ListAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAPIClient.swift; sourceTree = "<group>"; };
 		5872D9EB23F4F71C0067BB9A /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		58E9839423F4DFE7001E697C /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				0C14EFD423EE1096009BC63E /* BestSellerData.swift */,
-				584116B823F5BB5700F9BCAF /* BookTypes.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -250,7 +247,6 @@
 				0C14EF4F23EB54BA009BC63E /* BestSellerViewController.swift in Sources */,
 				0C14EF4B23EB54BA009BC63E /* AppDelegate.swift in Sources */,
 				58E9839A23F4E638001E697C /* BestSellerView.swift in Sources */,
-				584116B923F5BB5700F9BCAF /* BookTypes.swift in Sources */,
 				584116BB23F5BD4C00F9BCAF /* ListAPIClient.swift in Sources */,
 				0C14EF4D23EB54BA009BC63E /* SceneDelegate.swift in Sources */,
 				0C14EFC523EDBFB8009BC63E /* FavoritesViewController.swift in Sources */,
