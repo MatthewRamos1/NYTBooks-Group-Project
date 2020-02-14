@@ -22,6 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
         window?.rootViewController = NYTTabBarController()
+        (window?.rootViewController as! UITabBarController).tabBar.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         window?.makeKeyAndVisible()
     }
 

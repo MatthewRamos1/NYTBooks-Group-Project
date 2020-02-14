@@ -25,6 +25,7 @@
 		58E9839523F4DFE7001E697C /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E9839423F4DFE7001E697C /* Secrets.swift */; };
 		58E9839A23F4E638001E697C /* BestSellerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E9839923F4E638001E697C /* BestSellerView.swift */; };
 		58E9839C23F4E6D6001E697C /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E9839B23F4E6D6001E697C /* EmptyView.swift */; };
+		632A6CBF23F72EAD00F52A96 /* UserPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632A6CBE23F72EAD00F52A96 /* UserPreference.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		58E9839423F4DFE7001E697C /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		58E9839923F4E638001E697C /* BestSellerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestSellerView.swift; sourceTree = "<group>"; };
 		58E9839B23F4E6D6001E697C /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		632A6CBE23F72EAD00F52A96 /* UserPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreference.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,9 +83,9 @@
 			isa = PBXGroup;
 			children = (
 				0C14EF5E23EB5534009BC63E /* Network Services */,
-				0C14EF6023EB5581009BC63E /* Controllers */,
-				0C14EF6623EB584E009BC63E /* Views */,
 				0C14EF5F23EB5549009BC63E /* Models */,
+				0C14EF6623EB584E009BC63E /* Views */,
+				0C14EF6023EB5581009BC63E /* Controllers */,
 				0C14EF6423EB55F2009BC63E /* Extensions */,
 				0C14EF5823EB54BC009BC63E /* Info.plist */,
 				0C14EF6723EB5860009BC63E /* Supporting Files */,
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				0C14EFD423EE1096009BC63E /* BestSellerData.swift */,
+				632A6CBE23F72EAD00F52A96 /* UserPreference.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				0C14EF4D23EB54BA009BC63E /* SceneDelegate.swift in Sources */,
 				0C14EFC523EDBFB8009BC63E /* FavoritesViewController.swift in Sources */,
 				0C14EFC323EDBE2A009BC63E /* NYTTabBarController.swift in Sources */,
+				632A6CBF23F72EAD00F52A96 /* UserPreference.swift in Sources */,
 				0C14EFC723EDBFD2009BC63E /* SettingsViewController.swift in Sources */,
 				0C5758E723F5AEBD0095739E /* BestSellerDetailView.swift in Sources */,
 			);
