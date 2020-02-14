@@ -55,8 +55,8 @@ class BestSellerViewController: UIViewController {
     }
   }
   
-//  private var bookType = UserDefaults.standard.object(forKey: "bookType") as! BookTypes
   
+    
   init(_ dataPersistence: DataPersistence<Books>) {
     self.dataPersistence = dataPersistence
     super.init(nibName: nil, bundle: nil)

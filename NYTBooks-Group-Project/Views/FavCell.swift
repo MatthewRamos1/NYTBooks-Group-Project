@@ -51,12 +51,6 @@ class FavCell: UICollectionViewCell {
     return label
   }()
   
-  public lazy var deleteButton: UIButton = {
-    let button = UIButton()
-    button.setImage(UIImage(systemName: "ellipsis.circle"), for: .normal)
-//    button.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
-    return button
-  }()
   
   override init(frame: CGRect) {
     super.init(frame: UIScreen.main.bounds)
@@ -67,10 +61,7 @@ class FavCell: UICollectionViewCell {
     super.init(coder: coder)
     commonInit()
   }
-  
-//  @objc private func tapDidOccur() {
-//    screenTapped(selfzzz)
-//  }
+
   
   
   private func animate() {
@@ -81,7 +72,6 @@ class FavCell: UICollectionViewCell {
     titleLabelConstraint()
     imageConstraints()
     descriptionConstraints()
-    deleteButtonConstraints()
     addGestureRecognizer(gesture)
   }
   
@@ -118,15 +108,6 @@ class FavCell: UICollectionViewCell {
       titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
       titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
       titleLabel.heightAnchor.constraint(equalToConstant: 10)
-    ])
-  }
-  
-  private func deleteButtonConstraints() {
-    addSubview(deleteButton)
-    deleteButton.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      deleteButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 2),
-      deleteButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
     ])
   }
   
