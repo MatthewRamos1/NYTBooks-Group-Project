@@ -35,6 +35,18 @@ class BestSellerDetailView: UIView {
         return button
     }()
     
+    public lazy var googleButton: UIButton = {
+        let button = UIButton()
+        button.setBackgroundImage(UIImage(systemName: "gear"), for: .normal)
+        return button
+    }()
+    
+    public lazy var barnesAndNoblesButton: UIButton = {
+        let button = UIButton()
+        button.setBackgroundImage(UIImage(systemName: "gear"), for: .normal)
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -66,12 +78,24 @@ class BestSellerDetailView: UIView {
     
     private func setupButtons() {
         addSubview(amazonButton)
+        addSubview(googleButton)
+        addSubview(barnesAndNoblesButton)
         amazonButton.translatesAutoresizingMaskIntoConstraints = false
+        googleButton.translatesAutoresizingMaskIntoConstraints = false
+        barnesAndNoblesButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             amazonButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             amazonButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
             amazonButton.heightAnchor.constraint(equalToConstant: 50),
-            amazonButton.widthAnchor.constraint(equalToConstant: 50)
+            amazonButton.widthAnchor.constraint(equalToConstant: 50),
+            googleButton.topAnchor.constraint(equalTo: amazonButton.bottomAnchor),
+            googleButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            googleButton.heightAnchor.constraint(equalTo: amazonButton.heightAnchor),
+            googleButton.widthAnchor.constraint(equalTo: amazonButton.widthAnchor),
+            barnesAndNoblesButton.topAnchor.constraint(equalTo: googleButton.bottomAnchor),
+            barnesAndNoblesButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            barnesAndNoblesButton.heightAnchor.constraint(equalTo: amazonButton.heightAnchor),
+            barnesAndNoblesButton.widthAnchor.constraint(equalTo: amazonButton.widthAnchor)
         ])
     }
     

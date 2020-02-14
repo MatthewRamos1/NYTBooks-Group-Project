@@ -17,11 +17,16 @@ class BestSellerDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-
+        updateUI()
     }
     
     override func loadView() {
         view = bestSellerDetailView
+    }
+    
+    func updateUI() {
+        bestSellerDetailView.label.text = book?.author
+        bestSellerDetailView.textView.text = book?.description
     }
 
 }
