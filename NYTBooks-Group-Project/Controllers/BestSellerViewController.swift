@@ -93,7 +93,13 @@ extension BestSellerViewController : UICollectionViewDataSource {
 extension BestSellerViewController : UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let book = myBooks[indexPath.row]
-    let detailVC = BestSellerDetailViewController()
+    guard let cell = collectionView.cellForItem(at: indexPath) as? BookCell else {
+        fatalError("Couldn't downcast")
+    }
+    guard let detailImage = cell.savedImage else {
+        fatalError("Couldn't get image")
+    }
+    let detailVC = BestSellerDetailViewController(detailImage)
     detailVC.book = book
     
     navigationController?.pushViewController(detailVC, animated: true)

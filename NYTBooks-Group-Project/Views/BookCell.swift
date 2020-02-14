@@ -49,6 +49,8 @@ class BookCell: UICollectionViewCell {
     imageView.tintColor = .black
     return imageView
   }()
+    
+    public var savedImage: UIImage!
   
   override init(frame: CGRect) {
     super.init(frame: UIScreen.main.bounds)
@@ -79,6 +81,7 @@ class BookCell: UICollectionViewCell {
           self?.rankImageView.image = UIImage(systemName: "\(book.rank).circle")
         case .success(let image):
           self?.imageView.image = image
+          self?.savedImage = image
           self?.rankImageView.image = UIImage(systemName: "\(book.rank).circle")
         }
       }

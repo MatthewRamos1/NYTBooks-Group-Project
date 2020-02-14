@@ -24,6 +24,7 @@ class BestSellerView: UIView {
     pv.backgroundColor = .blue
     return pv
   }()
+    
 
   override init(frame: CGRect) {
     super.init(frame: UIScreen.main.bounds)

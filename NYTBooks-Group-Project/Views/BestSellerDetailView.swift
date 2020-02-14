@@ -37,7 +37,7 @@ class BestSellerDetailView: UIView {
     
     public lazy var googleButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(systemName: "gear"), for: .normal)
+        button.setBackgroundImage(UIImage(named: "googleLogo"), for: .normal)
         return button
     }()
     
@@ -88,11 +88,11 @@ class BestSellerDetailView: UIView {
             amazonButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
             amazonButton.heightAnchor.constraint(equalToConstant: 50),
             amazonButton.widthAnchor.constraint(equalToConstant: 50),
-            googleButton.topAnchor.constraint(equalTo: amazonButton.bottomAnchor),
+            googleButton.topAnchor.constraint(equalTo: amazonButton.bottomAnchor, constant: 8),
             googleButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
             googleButton.heightAnchor.constraint(equalTo: amazonButton.heightAnchor),
             googleButton.widthAnchor.constraint(equalTo: amazonButton.widthAnchor),
-            barnesAndNoblesButton.topAnchor.constraint(equalTo: googleButton.bottomAnchor),
+            barnesAndNoblesButton.topAnchor.constraint(equalTo: googleButton.bottomAnchor, constant: 8),
             barnesAndNoblesButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
             barnesAndNoblesButton.heightAnchor.constraint(equalTo: amazonButton.heightAnchor),
             barnesAndNoblesButton.widthAnchor.constraint(equalTo: amazonButton.widthAnchor)
