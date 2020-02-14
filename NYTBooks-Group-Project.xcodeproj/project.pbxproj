@@ -21,6 +21,8 @@
 		0C14EFD523EE1096009BC63E /* BestSellerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C14EFD423EE1096009BC63E /* BestSellerData.swift */; };
 		0C5758E523F5AE4F0095739E /* BestSellerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5758E423F5AE4F0095739E /* BestSellerDetailViewController.swift */; };
 		0C5758E723F5AEBD0095739E /* BestSellerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5758E623F5AEBD0095739E /* BestSellerDetailView.swift */; };
+		5829943923F7050F002E7C54 /* FavCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5829943823F7050F002E7C54 /* FavCell.swift */; };
+		5829943B23F71598002E7C54 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5829943A23F71598002E7C54 /* ShowAlert.swift */; };
 		584116BB23F5BD4C00F9BCAF /* ListAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584116BA23F5BD4C00F9BCAF /* ListAPIClient.swift */; };
 		584116BD23F613CD00F9BCAF /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584116BC23F613CC00F9BCAF /* FavoritesView.swift */; };
 		5872D9EC23F4F71C0067BB9A /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5872D9EB23F4F71C0067BB9A /* BookCell.swift */; };
@@ -45,6 +47,8 @@
 		0C14EFD423EE1096009BC63E /* BestSellerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestSellerData.swift; sourceTree = "<group>"; };
 		0C5758E423F5AE4F0095739E /* BestSellerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestSellerDetailViewController.swift; sourceTree = "<group>"; };
 		0C5758E623F5AEBD0095739E /* BestSellerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestSellerDetailView.swift; sourceTree = "<group>"; };
+		5829943823F7050F002E7C54 /* FavCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavCell.swift; sourceTree = "<group>"; };
+		5829943A23F71598002E7C54 /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShowAlert.swift; path = "NYTBooks-Group-Project/Views/ShowAlert.swift"; sourceTree = SOURCE_ROOT; };
 		584116BA23F5BD4C00F9BCAF /* ListAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAPIClient.swift; sourceTree = "<group>"; };
 		584116BC23F613CC00F9BCAF /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoritesView.swift; path = "NYTBooks-Group-Project/Views/FavoritesView.swift"; sourceTree = SOURCE_ROOT; };
 		5872D9EB23F4F71C0067BB9A /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 		0C14EF6423EB55F2009BC63E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				5829943A23F71598002E7C54 /* ShowAlert.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 				58E9839923F4E638001E697C /* BestSellerView.swift */,
 				58E9839B23F4E6D6001E697C /* EmptyView.swift */,
 				5872D9EB23F4F71C0067BB9A /* BookCell.swift */,
+				5829943823F7050F002E7C54 /* FavCell.swift */,
 				584116BC23F613CC00F9BCAF /* FavoritesView.swift */,
 				0C5758E623F5AEBD0095739E /* BestSellerDetailView.swift */,
 			);
@@ -241,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C5758E523F5AE4F0095739E /* BestSellerDetailViewController.swift in Sources */,
+				5829943923F7050F002E7C54 /* FavCell.swift in Sources */,
 				0C14EFD123EE0FE4009BC63E /* SettingsView.swift in Sources */,
 				58E9839523F4DFE7001E697C /* Secrets.swift in Sources */,
 				0C14EFD323EE1080009BC63E /* NYTAPIClient.swift in Sources */,
@@ -252,6 +259,7 @@
 				58E9839A23F4E638001E697C /* BestSellerView.swift in Sources */,
 				584116BB23F5BD4C00F9BCAF /* ListAPIClient.swift in Sources */,
 				0C14EF4D23EB54BA009BC63E /* SceneDelegate.swift in Sources */,
+				5829943B23F71598002E7C54 /* ShowAlert.swift in Sources */,
 				0C14EFC523EDBFB8009BC63E /* FavoritesViewController.swift in Sources */,
 				584116BD23F613CD00F9BCAF /* FavoritesView.swift in Sources */,
 				0C14EFC323EDBE2A009BC63E /* NYTTabBarController.swift in Sources */,

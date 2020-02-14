@@ -13,7 +13,7 @@ class FavoritesView: UIView {
   public lazy var collectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .vertical
-    layout.itemSize = CGSize(width: UIScreen.main.bounds.size.width * 0.95, height: 100)
+    layout.itemSize = CGSize(width: UIScreen.main.bounds.size.width * 0.95, height: 450)
     let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
     cv.backgroundColor = .white
     return cv

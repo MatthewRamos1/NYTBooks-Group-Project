@@ -128,7 +128,6 @@ extension BestSellerViewController : UICollectionViewDelegateFlowLayout {
     detailVC.book = book
     
     
-    
     navigationController?.pushViewController(detailVC, animated: true)
   }
 }
