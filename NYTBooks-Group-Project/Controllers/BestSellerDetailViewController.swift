@@ -39,7 +39,6 @@ class BestSellerDetailViewController: UIViewController {
     bestSellerDetailView.titleLabel.text = book.title
     bestSellerDetailView.authorNameLabel.text = book.author
     bestSellerDetailView.textView.text = book.description
-    
   }
 
 }

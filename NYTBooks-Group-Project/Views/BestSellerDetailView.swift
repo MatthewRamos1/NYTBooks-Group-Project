@@ -68,9 +68,20 @@ class BestSellerDetailView: UIView {
     button.backgroundColor = .blue
     return button
   }()
-  
 
+  public lazy var tapGesture : UITapGestureRecognizer = {
+    let gesture = UITapGestureRecognizer()
+    gesture.numberOfTouchesRequired = 2
+    gesture.addTarget(self, action: #selector(didTap))
+    return gesture
+  }()
   
+  public lazy var bookmark : UIBarButtonItem = {
+    let button = UIBarButtonItem()
+    button.image = UIImage(systemName: "bookmark")
+    
+    return button
+  }()
   
   override init(frame: CGRect) {
     super.init(frame: UIScreen.main.bounds)
@@ -81,6 +92,45 @@ class BestSellerDetailView: UIView {
     super.init(coder: coder)
     commonInit()
   }
+  
+  @objc private func didTap(_ gesture: UITapGestureRecognizer) {
+    
+  }
+//  @objc private func didLongPress(_ gesture: UILongPressGestureRecognizer) {
+//    guard let currentArticle = currentArticle else { return }
+//    if gesture.state == .began || gesture.state == .changed {
+//      return
+//    }
+//
+//    isSHowingImage.toggle()  // true -> false -> true
+//    newImageView.getImage(with: currentArticle.getArticleImageURL(for: .normal)) { [weak self] (result) in
+//      switch result {
+//      case .failure:
+//        break
+//      case .success(let image):
+//        DispatchQueue.main.async {
+//          self?.newImageView.image = image
+//          self?.animate()
+//        }
+//      }
+//    }
+//  }
+//
+//  private func animate() {
+//    let duration : Double = 1.0 // seconds
+//    if isSHowingImage {
+//      UIView.transition(with: self, duration: duration, options: [.transitionFlipFromRight], animations: {
+//        self.newImageView.alpha = 1.0
+//        self.articleTitle.alpha = 0.0
+//      }, completion: nil)
+//    } else {
+//      UIView.transition(with: self, duration: duration, options: [.transitionFlipFromLeft], animations: {
+//        self.newImageView.alpha = 0.0
+//        self.articleTitle.alpha = 1.0
+//      }, completion: nil)
+//    }
+//  }
+//
   
   private func commonInit() {
     titleLabelConstraints()
