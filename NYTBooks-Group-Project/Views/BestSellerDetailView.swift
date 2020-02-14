@@ -43,7 +43,13 @@ class BestSellerDetailView: UIView {
     
     public lazy var barnesAndNoblesButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(systemName: "gear"), for: .normal)
+        button.setBackgroundImage(UIImage(named: "barnesNLogo"), for: .normal)
+        return button
+    }()
+    
+    public lazy var localButton: UIButton = {
+        let button = UIButton()
+        button.setBackgroundImage(UIImage(named: "local"), for: .normal)
         return button
     }()
     
@@ -80,9 +86,11 @@ class BestSellerDetailView: UIView {
         addSubview(amazonButton)
         addSubview(googleButton)
         addSubview(barnesAndNoblesButton)
+        addSubview(localButton)
         amazonButton.translatesAutoresizingMaskIntoConstraints = false
         googleButton.translatesAutoresizingMaskIntoConstraints = false
         barnesAndNoblesButton.translatesAutoresizingMaskIntoConstraints = false
+        localButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             amazonButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             amazonButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
@@ -95,7 +103,11 @@ class BestSellerDetailView: UIView {
             barnesAndNoblesButton.topAnchor.constraint(equalTo: googleButton.bottomAnchor, constant: 8),
             barnesAndNoblesButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
             barnesAndNoblesButton.heightAnchor.constraint(equalTo: amazonButton.heightAnchor),
-            barnesAndNoblesButton.widthAnchor.constraint(equalTo: amazonButton.widthAnchor)
+            barnesAndNoblesButton.widthAnchor.constraint(equalTo: amazonButton.widthAnchor),
+            localButton.topAnchor.constraint(equalTo: barnesAndNoblesButton.bottomAnchor, constant: 8),
+            localButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant:  -20),
+            localButton.heightAnchor.constraint(equalTo: amazonButton.heightAnchor),
+            localButton.widthAnchor.constraint(equalTo: amazonButton.widthAnchor)
         ])
     }
     

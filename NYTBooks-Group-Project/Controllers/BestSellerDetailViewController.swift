@@ -29,6 +29,7 @@ class BestSellerDetailViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         updateUI()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Favorite", style: .plain, target: nil, action: nil)
     }
     
     override func loadView() {
@@ -39,6 +40,10 @@ class BestSellerDetailViewController: UIViewController {
         bestSellerDetailView.label.text = book?.author
         bestSellerDetailView.textView.text = book?.description
         bestSellerDetailView.detailImageView.image = detailImage
+    }
+    
+    @IBAction func favoriteButtonWasPressed(_ sender: UIBarButtonItem) {
+        
     }
     
 }
