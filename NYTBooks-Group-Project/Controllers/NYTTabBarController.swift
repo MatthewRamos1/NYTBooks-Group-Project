@@ -20,7 +20,7 @@ class NYTTabBarController: UITabBarController {
     }()
     
     private lazy var favoritesViewController: UIViewController = {
-        let vc = FavoritesViewController(DataPersistence)
+        let vc = FavoritesViewController(dataPersistence)
         vc.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "heart.fill"), tag: 1)
         return vc
     }()
