@@ -51,16 +51,13 @@ class BestSellerDetailViewController: UIViewController {
     }
     
     func createFavoriteData(image: UIImage) -> Favorite? {
-        guard let bookData = book else {
-            fatalError("Couldn't get book data")
-        }
         let size = UIScreen.main.bounds.size
         let rect = AVMakeRect(aspectRatio: image.size, insideRect: CGRect(origin: CGPoint.zero, size: size))
         let resizeImage = image.resizeImage(to: rect.size.width / 2 , height: rect.size.height / 2)
         guard let resizedImageData = resizeImage.jpegData(compressionQuality: 1.0) else {
             return nil
         }
-        let favorite = Favorite(rank: bookData.rank, description: bookData.description, title: bookData.title, author: bookData.author, imageData: resizedImageData, buyLink: bookData.amazonProductUrl)
+        let favorite = Favorite(rank: book.rank, description: book.description, title: book.title, author: book.author, imageData: resizedImageData, buyLink: book.amazonProductUrl)
         return favorite
     }
     

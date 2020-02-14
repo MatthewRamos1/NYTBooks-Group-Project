@@ -38,7 +38,7 @@ class BestSellerDetailView: UIView {
     
     public lazy var googleButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(named: "googleLogo"), for: .normal)
+        button.setBackgroundImage(UIImage(named: "appleLogo"), for: .normal)
         button.tag = 1
         return button
     }()
