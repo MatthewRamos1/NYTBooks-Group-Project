@@ -16,7 +16,6 @@ class EmptyView: UIView {
     label.font = label.font.withSize(25)
     label.text = "Title Label"
     label.textAlignment = .center
-//    label.backgroundColor = .green
     return label
   }()
   
@@ -24,8 +23,8 @@ class EmptyView: UIView {
     let label = UILabel()
     label.font = UIFont.preferredFont(forTextStyle: .subheadline)
     label.font = label.font.withSize(20)
+    label.numberOfLines = 0
     label.text = "Subhead label"
-//    label.backgroundColor = .systemRed
     label.textAlignment = .center
     return label
   }()

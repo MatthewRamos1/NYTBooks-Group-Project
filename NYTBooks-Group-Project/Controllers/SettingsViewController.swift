@@ -9,6 +9,12 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+  
+  private let settingView = EmptyView(title: "SMoke", message: "SMoke")
+  
+  override func loadView() {
+    view = settingView
+  }
 
     override func viewDidLoad() {
         super.viewDidLoad()

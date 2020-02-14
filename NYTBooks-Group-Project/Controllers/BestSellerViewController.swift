@@ -20,6 +20,11 @@ class BestSellerViewController: UIViewController {
     didSet {
       DispatchQueue.main.async {
         self.bestSellerView.collectionView.reloadData()
+        if self.myBooks.isEmpty {
+          self.bestSellerView.collectionView.backgroundView = EmptyView(title: "Empty", message: "unable to lod books")
+        } else {
+          self.bestSellerView.collectionView.backgroundView = nil
+        }
       }
     }
   }

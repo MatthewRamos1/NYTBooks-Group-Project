@@ -15,17 +15,19 @@ class NYTTabBarController: UITabBarController {
     
     private lazy var navController: BestSellerViewController = {
         let navController = BestSellerViewController(dataPersistence)
-        navController.tabBarItem = UITabBarItem(title: "Best Sellers", image: UIImage(systemName: "star.fill"), tag: 0)
+        navController.tabBarItem = UITabBarItem(title: "Best Sellers", image: UIImage(systemName: "star"), tag: 0)
+      navController.tabBarItem.selectedImage = UIImage(systemName: "star.fill")
         return navController
     }()
     
     private lazy var favoritesViewController: FavoritesViewController = {
-        let vc = FavoritesViewController()
-        vc.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "heart.fill"), tag: 1)
+        let vc = FavoritesViewController(dataPersistence)
+        vc.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "heart"), tag: 1)
+      vc.tabBarItem.selectedImage = UIImage(systemName: "heart.fill")
         return vc
     }()
     
-    private lazy var settingsViewController: UIViewController = {
+    private lazy var settingsViewController: SettingsViewController = {
         let vc = SettingsViewController()
         vc.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 2)
         return vc
