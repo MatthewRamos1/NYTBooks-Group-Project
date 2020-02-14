@@ -9,57 +9,59 @@
 import Foundation
 
 struct TopBooks : Codable & Equatable {
-  let results : BookList
+    let results : BookList
 }
 
 struct BookList : Codable & Equatable{
-  let list_name: String
-  let bestsellers_date: String
-  let published_date: String
-  let display_name: String
-  let books: [Books]
+    let list_name: String
+    let bestsellers_date: String
+    let published_date: String
+    let display_name: String
+    let books: [Books]
 }
 
 struct Books : Codable & Equatable {
-  let rank : Int
-  let publisher : String
-  let description : String
-  let title : String
-  let author : String
-  let contributor : String
-  let bookImage : String
-  let buyLinks : [BuyLinks]
-  private enum CodingKeys: String, CodingKey {
-    case rank
-    case publisher
-    case description
-    case title
-    case author
-    case contributor
-    case bookImage = "book_image"
-    case buyLinks = "buy_links"
-  }
+    let rank : Int
+    let publisher : String
+    let description : String
+    let title : String
+    let author : String
+    let contributor : String
+    let bookImage : String
+    let amazonProductUrl: String
+    let buyLinks : [BuyLinks]
+    private enum CodingKeys: String, CodingKey {
+        case rank
+        case publisher
+        case description
+        case title
+        case author
+        case contributor
+        case bookImage = "book_image"
+        case amazonProductUrl = "amazon_product_url"
+        case buyLinks = "buy_links"
+    }
 }
 
 struct BuyLinks : Codable & Equatable{
-  let name : String
-  let url : String
+    let name : String
+    let url : String
 }
 
 
 struct List : Codable & Equatable {
-  let results : [BookTypes]
+    let results : [BookTypes]
 }
 
 struct BookTypes : Codable & Equatable {
-  let listName : String
-  let displayName : String
-  let listNameEncoded : String
-  private enum CodingKeys: String, CodingKey {
-    case listName = "list_name"
-    case displayName = "display_name"
-    case listNameEncoded = "list_name_encoded"
-  }
+    let listName : String
+    let displayName : String
+    let listNameEncoded : String
+    private enum CodingKeys: String, CodingKey {
+        case listName = "list_name"
+        case displayName = "display_name"
+        case listNameEncoded = "list_name_encoded"
+    }
 }
 
 

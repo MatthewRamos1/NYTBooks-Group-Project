@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct Favorites {
+struct Favorite: Codable & Equatable  {
     let rank : Int
     let description : String
     let title : String
     let author : String
     let imageData : Data
-    let buyLink: [String]
+    let buyLink: String
 }

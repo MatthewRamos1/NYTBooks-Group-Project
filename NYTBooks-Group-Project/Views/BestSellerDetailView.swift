@@ -32,23 +32,27 @@ class BestSellerDetailView: UIView {
     public lazy var amazonButton: UIButton = {
         let button = UIButton()
         button.setBackgroundImage(UIImage(named: "amazonLogo"), for: .normal)
+        button.tag = 0
         return button
     }()
     
     public lazy var googleButton: UIButton = {
         let button = UIButton()
         button.setBackgroundImage(UIImage(named: "googleLogo"), for: .normal)
+        button.tag = 1
         return button
     }()
     
     public lazy var barnesAndNoblesButton: UIButton = {
         let button = UIButton()
         button.setBackgroundImage(UIImage(named: "barnesNLogo"), for: .normal)
+        button.tag = 2
         return button
     }()
     
     public lazy var localButton: UIButton = {
         let button = UIButton()
+        button.tag = 3
         button.setBackgroundImage(UIImage(named: "local"), for: .normal)
         return button
     }()
