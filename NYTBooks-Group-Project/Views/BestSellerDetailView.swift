@@ -32,6 +32,28 @@ class BestSellerDetailView: UIView {
     public lazy var amazonButton: UIButton = {
         let button = UIButton()
         button.setBackgroundImage(UIImage(named: "amazonLogo"), for: .normal)
+        button.tag = 0
+        return button
+    }()
+    
+    public lazy var googleButton: UIButton = {
+        let button = UIButton()
+        button.setBackgroundImage(UIImage(named: "appleLogo"), for: .normal)
+        button.tag = 1
+        return button
+    }()
+    
+    public lazy var barnesAndNoblesButton: UIButton = {
+        let button = UIButton()
+        button.setBackgroundImage(UIImage(named: "barnesNLogo"), for: .normal)
+        button.tag = 2
+        return button
+    }()
+    
+    public lazy var localButton: UIButton = {
+        let button = UIButton()
+        button.tag = 3
+        button.setBackgroundImage(UIImage(named: "local"), for: .normal)
         return button
     }()
     
@@ -66,12 +88,30 @@ class BestSellerDetailView: UIView {
     
     private func setupButtons() {
         addSubview(amazonButton)
+        addSubview(googleButton)
+        addSubview(barnesAndNoblesButton)
+        addSubview(localButton)
         amazonButton.translatesAutoresizingMaskIntoConstraints = false
+        googleButton.translatesAutoresizingMaskIntoConstraints = false
+        barnesAndNoblesButton.translatesAutoresizingMaskIntoConstraints = false
+        localButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             amazonButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             amazonButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
             amazonButton.heightAnchor.constraint(equalToConstant: 50),
-            amazonButton.widthAnchor.constraint(equalToConstant: 50)
+            amazonButton.widthAnchor.constraint(equalToConstant: 50),
+            googleButton.topAnchor.constraint(equalTo: amazonButton.bottomAnchor, constant: 8),
+            googleButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            googleButton.heightAnchor.constraint(equalTo: amazonButton.heightAnchor),
+            googleButton.widthAnchor.constraint(equalTo: amazonButton.widthAnchor),
+            barnesAndNoblesButton.topAnchor.constraint(equalTo: googleButton.bottomAnchor, constant: 8),
+            barnesAndNoblesButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            barnesAndNoblesButton.heightAnchor.constraint(equalTo: amazonButton.heightAnchor),
+            barnesAndNoblesButton.widthAnchor.constraint(equalTo: amazonButton.widthAnchor),
+            localButton.topAnchor.constraint(equalTo: barnesAndNoblesButton.bottomAnchor, constant: 8),
+            localButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant:  -20),
+            localButton.heightAnchor.constraint(equalTo: amazonButton.heightAnchor),
+            localButton.widthAnchor.constraint(equalTo: amazonButton.widthAnchor)
         ])
     }
     
