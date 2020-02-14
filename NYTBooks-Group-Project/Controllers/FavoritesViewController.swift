@@ -83,6 +83,7 @@ extension FavoritesViewController : UICollectionViewDataSource {
     let book = favorites[indexPath.row]
     cell.delegate = self
     cell.configureCell(book)
+    
     return cell
   }
   
@@ -99,7 +100,7 @@ extension FavoritesViewController : MoreButtonPressed {
   func moreButtonPressed(book: Books, favCell: FavCell) {
     print("nope")
     guard let index = favorites.firstIndex(of: book) else { return }
-    var amazonSafari = SFSafariViewController(url: URL(string: book.buyLinks[index].url)!)
+    let amazonSafari = SFSafariViewController(url: URL(string: book.buyLinks[index].url)!)
     let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
     let cancel = UIAlertAction(title: "Cancel", style: .cancel)
     let delete = UIAlertAction(title: "Delete", style: .destructive) { (alertACtion) in

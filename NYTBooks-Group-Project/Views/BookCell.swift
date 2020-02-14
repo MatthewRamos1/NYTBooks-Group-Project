@@ -15,6 +15,8 @@ protocol ButtonPressedDelegate : AnyObject {
 
 class BookCell: UICollectionViewCell {
   
+  
+  
   public lazy var titleLabel : UILabel = {
     let label = UILabel()
     label.text = "Title"
@@ -85,6 +87,7 @@ class BookCell: UICollectionViewCell {
     }
   }
   
+ 
   private func titleLabelConstraints() {
     addSubview(titleLabel)
     titleLabel.translatesAutoresizingMaskIntoConstraints = false

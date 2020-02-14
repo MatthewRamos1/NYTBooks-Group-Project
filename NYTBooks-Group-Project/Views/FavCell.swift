@@ -14,9 +14,19 @@ protocol MoreButtonPressed : AnyObject {
 
 class FavCell: UICollectionViewCell {
   
+//  private var toggle = false
+  
+  
   weak var delegate : MoreButtonPressed?
   
   private var currentBook : Books!
+  
+  public lazy var gesture : UITapGestureRecognizer = {
+    let gesture = UITapGestureRecognizer()
+    gesture.numberOfTapsRequired = 2
+    gesture.addTarget(self, action: #selector(screenTapped(_:)))
+    return gesture
+  }()
   
   public lazy var titleLabel : UILabel = {
     let label = UILabel()
@@ -44,7 +54,7 @@ class FavCell: UICollectionViewCell {
   public lazy var deleteButton: UIButton = {
     let button = UIButton()
     button.setImage(UIImage(systemName: "ellipsis.circle"), for: .normal)
-    button.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
+//    button.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
     return button
   }()
   
@@ -58,16 +68,30 @@ class FavCell: UICollectionViewCell {
     commonInit()
   }
   
+//  @objc private func tapDidOccur() {
+//    screenTapped(selfzzz)
+//  }
+  
+  
+  private func animate() {
+    
+  }
+  
   private func commonInit() {
     titleLabelConstraint()
     imageConstraints()
     descriptionConstraints()
     deleteButtonConstraints()
+    addGestureRecognizer(gesture)
   }
   
   @objc private func buttonPressed(_ sender: UIButton) {
     delegate?.moreButtonPressed(book: currentBook, favCell: self)
-    }
+  }
+  
+  @objc private func screenTapped(_ sender: UIGestureRecognizer) {
+    delegate?.moreButtonPressed(book: currentBook, favCell: self)
+  }
   
   
   public func configureCell(_ book: Books) {
