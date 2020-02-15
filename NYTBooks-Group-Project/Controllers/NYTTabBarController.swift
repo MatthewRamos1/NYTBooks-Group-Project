@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import DataPersistence
 
 class NYTTabBarController: UITabBarController {
+  
+  private var dataPersistence = DataPersistence<Books>(filename: "favorites.plist")
     
     private lazy var navController: UINavigationController = {
         let navController = UINavigationController(rootViewController: BestSellerViewController())
@@ -17,7 +20,7 @@ class NYTTabBarController: UITabBarController {
     }()
     
     private lazy var favoritesViewController: UIViewController = {
-        let vc = FavoritesViewController()
+        let vc = FavoritesViewController(dataPersistence)
         vc.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "heart.fill"), tag: 1)
         return vc
     }()
