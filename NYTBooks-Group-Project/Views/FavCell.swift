@@ -88,16 +88,7 @@ class FavCell: UICollectionViewCell {
     currentBook = favorite
     titleLabel.text = favorite.title
     descriptionLabel.text = favorite.description
-//    imageView.getImage(with: favorite.bookImage) { (result) in
-//      DispatchQueue.main.async {
-//        switch result {
-//        case .failure:
-//          self.imageView.image = UIImage(systemName: "bookmark.fill")
-//        case .success(let image):
-//          self.imageView.image = image
-//        }
-//      }
-//    }
+    imageView.image = UIImage(data: favorite.imageData)
   }
   
   private func titleLabelConstraint() {
