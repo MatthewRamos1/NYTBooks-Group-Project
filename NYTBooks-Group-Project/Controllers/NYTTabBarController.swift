@@ -11,7 +11,7 @@ import DataPersistence
 
 class NYTTabBarController: UITabBarController {
   
-  private var dataPersistence = DataPersistence<Books>(filename: "favorites.plist")
+  private var dataPersistence = DataPersistence<Favorite>(filename: "favorites.plist")
     
     private lazy var navController: UINavigationController = {
         let navController = UINavigationController(rootViewController: BestSellerViewController())
