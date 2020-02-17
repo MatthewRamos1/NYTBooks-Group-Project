@@ -14,9 +14,9 @@ class FavoritesViewController: UIViewController {
   
   private var favView = FavoritesView()
   
-  private var dataPersistence : DataPersistence<Books>
+  private var dataPersistence : DataPersistence<Favorite>
   
-  public var favorites = [Books]() {
+  public var favorites = [Favorite]() {
     didSet {
       DispatchQueue.main.async {
         self.favView.collectionView.reloadData()
@@ -29,7 +29,7 @@ class FavoritesViewController: UIViewController {
     }
   }
   
-  init(_ dataPersistence: DataPersistence<Books>) {
+  init(_ dataPersistence: DataPersistence<Favorite>) {
     self.dataPersistence = dataPersistence
     super.init(nibName: nil, bundle: nil)
   }
@@ -57,8 +57,8 @@ class FavoritesViewController: UIViewController {
     }
   }
   
-  private func deleteBook(_ book: Books)  {
-    guard let index = favorites.firstIndex(of: book) else { return }
+  private func deleteBook(_ favorite: Favorite)  {
+    guard let index = favorites.firstIndex(of: favorite) else { return }
     do {
       try dataPersistence.deleteItem(at: index)
       showAlert(title: "", message: "Item removed")
@@ -78,7 +78,7 @@ extension FavoritesViewController : UICollectionViewDataSource {
     }
     
     let book = favorites[indexPath.row]
-    cell.delegate = self
+//    cell.delegate = self
     cell.configureCell(book)
     
     return cell
@@ -93,26 +93,26 @@ extension FavoritesViewController : UICollectionViewDataSource {
   
 }
 
-extension FavoritesViewController : MoreButtonPressed {
-  func moreButtonPressed(book: Books, favCell: FavCell) {
-    print("nope")
-    guard let index = favorites.firstIndex(of: book) else { return }
-    let amazonSafari = SFSafariViewController(url: URL(string: book.buyLinks[index].url)!)
-    let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
-    let cancel = UIAlertAction(title: "Cancel", style: .cancel)
-    let delete = UIAlertAction(title: "Delete", style: .destructive) { (alertACtion) in
-      self.deleteBook(book)
-    }
-    let amazon = UIAlertAction(title: "See on amazon", style: .default) { (alertAction) in
-      self.present(amazonSafari, animated: true)
-    }
-    
-    alert.addAction(amazon)
-    alert.addAction(cancel)
-    alert.addAction(delete)
-    present(alert, animated: true)
-  }
-}
+//extension FavoritesViewController : MoreButtonPressed {
+//    func moreButtonPressed(favorite: Favorite, favCell: FavCell) {
+//    print("nope")
+//    guard let index = favorites.firstIndex(of: favorite) else { return }
+//    let amazonSafari = SFSafariViewController(url: URL(string: favorite.buyLink))!
+//    let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+//    let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+//    let delete = UIAlertAction(title: "Delete", style: .destructive) { (alertACtion) in
+//      self.deleteBook(favorite)
+//    }
+//    let amazon = UIAlertAction(title: "See on amazon", style: .default) { (alertAction) in
+//      self.present(amazonSafari, animated: true)
+//    }
+//    
+//    alert.addAction(amazon)
+//    alert.addAction(cancel)
+//    alert.addAction(delete)
+//    present(alert, animated: true)
+//  }
+//}
 
 
 // MARK : Show Alert
