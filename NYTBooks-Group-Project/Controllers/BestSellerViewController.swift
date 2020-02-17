@@ -14,6 +14,8 @@ class BestSellerViewController: UIViewController {
     
     public var userPreference: UserPreference!
     
+    private var sectionName = "Manga"
+    
     public var myBooks = [Books]() {
         didSet {
             DispatchQueue.main.async {
@@ -52,8 +54,7 @@ class BestSellerViewController: UIViewController {
         bestSellerView.collectionView.dataSource = self
         bestSellerView.collectionView.delegate = self
         bestSellerView.collectionView.register(BookCell.self, forCellWithReuseIdentifier: "bookCell")
-       
-        
+        getSection(with: "Manga")
     }
     
     private func loadBookTypes() {
@@ -67,16 +68,29 @@ class BestSellerViewController: UIViewController {
         }
     }
     
-    private func loadBooks(with category: String) {
-        NYTAPIClient.fetchBooks(for: category) { (result) in
-            switch result {
-            case .failure(let appError):
-                print("Error: \(appError)")
-            case .success(let books):
-                self.myBooks = books
+    private func getSection(with category: String) {
+        if let categoryName = userPreference.getSectionName() {
+            if categoryName != self.sectionName {
+                loadBooks(with: categoryName)
+                self.sectionName = categoryName
+            } else {
+                loadBooks(with: categoryName)
             }
+        } else {
+            loadBooks(with: sectionName)
         }
     }
+    
+    private func loadBooks(with category: String) {
+            NYTAPIClient.fetchBooks(for: category) { (result) in
+                switch result {
+                case .failure(let appError):
+                    print("Error: \(appError)")
+                case .success(let books):
+                    self.myBooks = books
+                }
+            }
+        }
 }
 
 extension BestSellerViewController : UICollectionViewDataSource {
@@ -89,7 +103,6 @@ extension BestSellerViewController : UICollectionViewDataSource {
         }
         let book = myBooks[indexPath.row]
         cell.configureCell(with: book)
-        
         cell.backgroundColor = .white
         
         return cell
@@ -97,19 +110,19 @@ extension BestSellerViewController : UICollectionViewDataSource {
 }
 
 extension BestSellerViewController : UICollectionViewDelegateFlowLayout {
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    let book = myBooks[indexPath.row]
-    guard let cell = collectionView.cellForItem(at: indexPath) as? BookCell else {
-        fatalError("Couldn't downcast")
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let book = myBooks[indexPath.row]
+        guard let cell = collectionView.cellForItem(at: indexPath) as? BookCell else {
+            fatalError("Couldn't downcast")
+        }
+        guard let detailImage = cell.savedImage else {
+            fatalError("Couldn't get image")
+        }
+        let detailVC = BestSellerDetailViewController(detailImage)
+        detailVC.book = book
+        
+        navigationController?.pushViewController(detailVC, animated: true)
     }
-    guard let detailImage = cell.savedImage else {
-        fatalError("Couldn't get image")
-    }
-    let detailVC = BestSellerDetailViewController(detailImage)
-    detailVC.book = book
-    
-    navigationController?.pushViewController(detailVC, animated: true)
-  }
 }
 
 extension BestSellerViewController : UIPickerViewDataSource {
