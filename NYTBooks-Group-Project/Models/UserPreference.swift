@@ -9,7 +9,7 @@
 import Foundation
 
 struct UserKey {
-    static let selectedList = "Section Name"
+    static let selectedList = "Manga"
 }
 
 protocol UserPreferenceDelegate: AnyObject {

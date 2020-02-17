@@ -88,7 +88,7 @@ extension SettingsViewController : UIPickerViewDelegate {
         let selectedList = list[row]
         let category = list[row].replacingOccurrences(of: " ", with: "-").lowercased()
         userPreference.setSectionName(selectedList)
-        print(userPreference.getSectionName())
+        print(userPreference.getSectionName()!)
         print(category)
     }
     
