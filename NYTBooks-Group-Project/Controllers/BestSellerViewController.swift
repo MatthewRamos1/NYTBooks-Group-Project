@@ -7,9 +7,15 @@
 //
 
 import UIKit
+
+
 class BestSellerViewController: UIViewController {
     private var bestSellerView = BestSellerView()
+    
     public var userPreference: UserPreference!
+    
+     private var animationView = AnimationView()
+    
 //    private var sectionName = "Advice How-To and Miscellaneous"
     public var myBooks = [Books]() {
         didSet {
@@ -48,11 +54,13 @@ class BestSellerViewController: UIViewController {
         bestSellerView.collectionView.register(BookCell.self, forCellWithReuseIdentifier: "bookCell")
         loadBooks(with: category)
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.setPickerView()
-        self.setSection()
     }
+    
+    
     private func setPickerView() {
         if let savedIndex = userPreference.getIndex() {
             bestSellerView.pickerView.selectRow(savedIndex, inComponent: 0, animated: true)
