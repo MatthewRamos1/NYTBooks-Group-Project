@@ -20,6 +20,7 @@ class FavCell: UICollectionViewCell {
   weak var delegate : MoreButtonPressed?
   
   private var currentBook : Favorite!
+    
   
   public lazy var gesture : UITapGestureRecognizer = {
     let gesture = UITapGestureRecognizer()
@@ -31,8 +32,8 @@ class FavCell: UICollectionViewCell {
   public lazy var titleLabel : UILabel = {
     let label = UILabel()
     label.text = "Title Label"
-    label.contentMode = .center
-    label.backgroundColor = .magenta
+    label.font = UIFont.boldSystemFont(ofSize: 16.0)
+    label.textAlignment = .center
     return label
   }()
   
@@ -47,7 +48,7 @@ class FavCell: UICollectionViewCell {
   public lazy var descriptionLabel : UILabel = {
     let label = UILabel()
     label.text = "Description"
-    label.backgroundColor = .orange
+    label.numberOfLines = 0
     return label
   }()
   
@@ -98,7 +99,6 @@ class FavCell: UICollectionViewCell {
       titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
       titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
       titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-      titleLabel.heightAnchor.constraint(equalToConstant: 10)
     ])
   }
   

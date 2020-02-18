@@ -54,7 +54,7 @@ class BestSellerViewController: UIViewController {
         bestSellerView.collectionView.dataSource = self
         bestSellerView.collectionView.delegate = self
         bestSellerView.collectionView.register(BookCell.self, forCellWithReuseIdentifier: "bookCell")
-        getSection(with: "Manga")
+//        getSection(with: "Manga")
     }
     
     private func loadBookTypes() {
@@ -68,19 +68,19 @@ class BestSellerViewController: UIViewController {
         }
     }
     
-    private func getSection(with category: String) {
-        if let categoryName = userPreference.getSectionName() {
-            if categoryName != self.sectionName {
-                loadBooks(with: categoryName)
-                self.sectionName = categoryName
-            } else {
-                loadBooks(with: categoryName)
-            }
-        } else {
-            loadBooks(with: sectionName)
-        }
-    }
-    
+//    private func getSection(with category: String) {
+//        if let categoryName = userPreference.getSectionName() {
+//            if categoryName != self.sectionName {
+//                loadBooks(with: categoryName)
+//                self.sectionName = categoryName
+//            } else {
+//                loadBooks(with: categoryName)
+//            }
+//        } else {
+//            loadBooks(with: sectionName)
+//        }
+//    }
+//
     private func loadBooks(with category: String) {
             NYTAPIClient.fetchBooks(for: category) { (result) in
                 switch result {
