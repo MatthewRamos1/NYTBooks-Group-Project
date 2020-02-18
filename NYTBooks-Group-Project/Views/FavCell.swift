@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MoreButtonPressed : AnyObject {
-  func moreButtonPressed(book: Books, favCell: FavCell)
+  func moreButtonPressed(favorite: Favorite, favCell: FavCell)
 }
 
 class FavCell: UICollectionViewCell {
@@ -19,7 +19,8 @@ class FavCell: UICollectionViewCell {
   
   weak var delegate : MoreButtonPressed?
   
-  private var currentBook : Books!
+  private var currentBook : Favorite!
+    
   
   public lazy var gesture : UITapGestureRecognizer = {
     let gesture = UITapGestureRecognizer()
@@ -31,8 +32,8 @@ class FavCell: UICollectionViewCell {
   public lazy var titleLabel : UILabel = {
     let label = UILabel()
     label.text = "Title Label"
-    label.contentMode = .center
-    label.backgroundColor = .magenta
+    label.font = UIFont.boldSystemFont(ofSize: 16.0)
+    label.textAlignment = .center
     return label
   }()
   
@@ -47,7 +48,7 @@ class FavCell: UICollectionViewCell {
   public lazy var descriptionLabel : UILabel = {
     let label = UILabel()
     label.text = "Description"
-    label.backgroundColor = .orange
+    label.numberOfLines = 0
     return label
   }()
   
@@ -76,28 +77,19 @@ class FavCell: UICollectionViewCell {
   }
   
   @objc private func buttonPressed(_ sender: UIButton) {
-    delegate?.moreButtonPressed(book: currentBook, favCell: self)
+    delegate?.moreButtonPressed(favorite: currentBook, favCell: self)
   }
   
   @objc private func screenTapped(_ sender: UIGestureRecognizer) {
-    delegate?.moreButtonPressed(book: currentBook, favCell: self)
+    delegate?.moreButtonPressed(favorite: currentBook, favCell: self)
   }
   
   
-  public func configureCell(_ book: Books) {
-    currentBook = book
-    titleLabel.text = book.title
-    descriptionLabel.text = book.description
-    imageView.getImage(with: book.bookImage) { (result) in
-      DispatchQueue.main.async {
-        switch result {
-        case .failure:
-          self.imageView.image = UIImage(systemName: "bookmark.fill")
-        case .success(let image):
-          self.imageView.image = image
-        }
-      }
-    }
+  public func configureCell(_ favorite: Favorite) {
+    currentBook = favorite
+    titleLabel.text = favorite.title
+    descriptionLabel.text = favorite.description
+    imageView.image = UIImage(data: favorite.imageData)
   }
   
   private func titleLabelConstraint() {
@@ -107,7 +99,6 @@ class FavCell: UICollectionViewCell {
       titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
       titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
       titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-      titleLabel.heightAnchor.constraint(equalToConstant: 10)
     ])
   }
   

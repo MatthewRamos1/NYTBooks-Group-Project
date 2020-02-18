@@ -59,21 +59,6 @@ class BestSellerViewController: UIViewController {
         bestSellerView.collectionView.dataSource = self
         bestSellerView.collectionView.delegate = self
         bestSellerView.collectionView.register(BookCell.self, forCellWithReuseIdentifier: "bookCell")
-        loadBooks(with: category)
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        self.setPickerView()
-        self.setSection()
-        
-    }
-    
-    private func setPickerView() {
-        if let savedIndex = userPreference.getIndex() {
-            bestSellerView.pickerView.selectRow(savedIndex, inComponent: 0, animated: true)
-        }
     }
     
     private func loadBookTypes() {
@@ -87,20 +72,7 @@ class BestSellerViewController: UIViewController {
         }
     }
     
-    private func getIndex() {
-        if let categoryName = userPreference.getSectionName() {
-            if let index = categoryList.firstIndex(of: categoryName) {
-                bestSellerView.pickerView.selectRow(index, inComponent: 0, animated: true)
-            }
-        }
-    }
-    
-     private func setSection() {
-         if let section = userPreference.getSectionName() {
-             loadBooks(with: section)
-         }
-     }
-    
+
     private func loadBooks(with category: String) {
             NYTAPIClient.fetchBooks(for: category) { (result) in
                 switch result {
