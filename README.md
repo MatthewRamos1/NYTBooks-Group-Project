@@ -23,3 +23,5 @@ pod install
 After installing the cocoapod into your project import Lottie with
 
 import Lottie
+
+
