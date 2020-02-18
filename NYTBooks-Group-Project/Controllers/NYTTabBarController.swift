@@ -8,12 +8,15 @@
 
 import UIKit
 import DataPersistence
+import Lottie
 
 class NYTTabBarController: UITabBarController {
   
   private var dataPersistence = DataPersistence<Favorite>(filename: "favorites.plist")
     
     private var userPreference = UserPreference()
+    
+    private var animationView = AnimationView()
     
     private lazy var navController: BestSellerViewController = {
         let navController = BestSellerViewController()
@@ -42,6 +45,26 @@ class NYTTabBarController: UITabBarController {
                            UINavigationController(rootViewController: favoritesViewController),
                            UINavigationController(rootViewController: settingsViewController)]
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.runLottieAnimation()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+            self.removeAnimationScreen()
+        }
+    }
+    
+    
+    func runLottieAnimation() {
+        view.addSubview(animationView)
+        animationView.startAnimation()
+    }
+
+
+    func removeAnimationScreen() {
+        animationView.removeFromSuperview()
+    }
+
+    
     
     
     
