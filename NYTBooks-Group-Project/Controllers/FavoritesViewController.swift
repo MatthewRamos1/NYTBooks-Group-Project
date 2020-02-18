@@ -95,7 +95,6 @@ extension FavoritesViewController : UICollectionViewDataSource {
 
 extension FavoritesViewController : MoreButtonPressed {
     func moreButtonPressed(favorite: Favorite, favCell: FavCell) {
-        guard let index = favorites.firstIndex(of: favorite) else { return }
         guard let endpointURL = URL(string: favorite.buyLink) else { return }
         let amazonSafari = SFSafariViewController(url: endpointURL)
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)

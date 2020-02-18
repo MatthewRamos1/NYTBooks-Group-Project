@@ -101,8 +101,6 @@ extension SettingsViewController : UIPickerViewDelegate {
         let category = selectedList.replacingOccurrences(of: " ", with: "-").lowercased()
         userPreference.setSectionName(category)
         userPreference.setIndex(row)
-        print(row)
-        print(userPreference.getIndex())
     }
     
 }

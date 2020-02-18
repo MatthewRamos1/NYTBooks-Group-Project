@@ -26,6 +26,7 @@ class BestSellerDetailView: UIView {
     public lazy var textView: UITextView = {
         let textView = UITextView()
         textView.text = "Test"
+        textView.isEditable = false
         return textView
     }()
     
