@@ -9,7 +9,7 @@
 import UIKit
 
 class FavoritesView: UIView {
-
+  
   public lazy var collectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .vertical
@@ -18,7 +18,7 @@ class FavoritesView: UIView {
     cv.backgroundColor = .white
     return cv
   }()
-
+  
   override init(frame: CGRect) {
     super.init(frame: UIScreen.main.bounds)
     commonInit()
@@ -32,7 +32,7 @@ class FavoritesView: UIView {
   private func commonInit() {
     collectionViewConstraints()
   }
-
+  
   private func collectionViewConstraints() {
     addSubview(collectionView)
     collectionView.translatesAutoresizingMaskIntoConstraints = false

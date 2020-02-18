@@ -14,13 +14,13 @@ protocol MoreButtonPressed : AnyObject {
 
 class FavCell: UICollectionViewCell {
   
-//  private var toggle = false
+  //  private var toggle = false
   
   
   weak var delegate : MoreButtonPressed?
   
   private var currentBook : Favorite!
-    
+  
   
   public lazy var gesture : UITapGestureRecognizer = {
     let gesture = UITapGestureRecognizer()
@@ -61,12 +61,6 @@ class FavCell: UICollectionViewCell {
   required init?(coder: NSCoder) {
     super.init(coder: coder)
     commonInit()
-  }
-
-  
-  
-  private func animate() {
-    
   }
   
   private func commonInit() {
