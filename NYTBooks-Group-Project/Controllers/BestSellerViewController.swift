@@ -56,6 +56,8 @@ class BestSellerViewController: UIViewController {
     private func setPickerView() {
         if let savedIndex = userPreference.getIndex() {
             bestSellerView.pickerView.selectRow(savedIndex, inComponent: 0, animated: true)
+        } else {
+            bestSellerView.pickerView.selectRow(0, inComponent: 0, animated: true)
         }
     }
     private func loadBookTypes() {
@@ -78,7 +80,9 @@ class BestSellerViewController: UIViewController {
      private func setSection() {
          if let section = userPreference.getSectionName() {
              loadBooks(with: section)
-         }
+         } else {
+            loadBooks(with: "Advice How-To and Miscellaneous")
+        }
      }
     private func loadBooks(with category: String) {
             NYTAPIClient.fetchBooks(for: category) { (result) in
