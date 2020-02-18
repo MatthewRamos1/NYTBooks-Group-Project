@@ -13,9 +13,12 @@ class NYTTabBarController: UITabBarController {
   
   private var dataPersistence = DataPersistence<Books>(filename: "favorites.plist")
     
-    private lazy var navController: UINavigationController = {
-        let navController = UINavigationController(rootViewController: BestSellerViewController())
+    private var userPreference = UserPreference()
+    
+    private lazy var navController: BestSellerViewController = {
+        let navController = BestSellerViewController()
         navController.tabBarItem = UITabBarItem(title: "Best Sellers", image: UIImage(systemName: "star.fill"), tag: 0)
+        navController.userPreference = userPreference
         return navController
     }()
     
@@ -27,6 +30,7 @@ class NYTTabBarController: UITabBarController {
     
     private lazy var settingsViewController: UIViewController = {
         let vc = SettingsViewController()
+        vc.userPreference = userPreference
         vc.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 2)
         return vc
     }()
@@ -34,6 +38,11 @@ class NYTTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewControllers = [navController, favoritesViewController, settingsViewController]
+        viewControllers = [UINavigationController(rootViewController: navController),
+                           UINavigationController(rootViewController: favoritesViewController),
+                           UINavigationController(rootViewController: settingsViewController)]
     }
+    
+    
+    
 }

@@ -9,11 +9,13 @@
 import Foundation
 
 struct UserKey {
-    static let selectedList = "Manga"
+    static let selectedList = "News Section"
+    static let selectedIndex = "Picked Index"
 }
 
 protocol UserPreferenceDelegate: AnyObject {
   func didChangeBooksSection(_ userPreference: UserPreference, selectedList: String)
+    func didChangeIndex(_ userPreference: UserPreference, index: Int)
 }
 
 final class UserPreference {
@@ -22,9 +24,19 @@ final class UserPreference {
   public func getSectionName() -> String? {
     return UserDefaults.standard.object(forKey: UserKey.selectedList) as? String
   }
-  
+ 
   public func setSectionName(_ selectedList: String) {
     UserDefaults.standard.set(selectedList, forKey: UserKey.selectedList)
     delegate?.didChangeBooksSection(self, selectedList: selectedList)
   }
+    
+    public func getIndex() -> Int? {
+        return UserDefaults.standard.object(forKey: UserKey.selectedIndex) as? Int
+    }
+    
+    public func setIndex(_ index: Int) {
+        UserDefaults.standard.set(index, forKey: UserKey.selectedIndex)
+        delegate?.didChangeIndex(self, index: index)
+    }
+    
 }

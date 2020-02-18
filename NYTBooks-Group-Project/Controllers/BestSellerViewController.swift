@@ -14,7 +14,8 @@ class BestSellerViewController: UIViewController {
     
     public var userPreference: UserPreference!
     
-    private var sectionName = "Manga"
+    
+//    private var sectionName = "Advice How-To and Miscellaneous"
     
     public var myBooks = [Books]() {
         didSet {
@@ -24,10 +25,12 @@ class BestSellerViewController: UIViewController {
         }
     }
     
-    public var list = [BookTypes]() {
+    public var categoryList = [String]() {
         didSet {
             DispatchQueue.main.async {
                 self.bestSellerView.pickerView.reloadAllComponents()
+                self.setPickerView()
+                self.setSection()
             }
         }
     }
@@ -37,6 +40,8 @@ class BestSellerViewController: UIViewController {
             loadBooks(with: category)
         }
     }
+    
+    
     override func loadView() {
         view = bestSellerView
     }
@@ -54,7 +59,21 @@ class BestSellerViewController: UIViewController {
         bestSellerView.collectionView.dataSource = self
         bestSellerView.collectionView.delegate = self
         bestSellerView.collectionView.register(BookCell.self, forCellWithReuseIdentifier: "bookCell")
-        getSection(with: "Manga")
+        loadBooks(with: category)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.setPickerView()
+        self.setSection()
+        
+    }
+    
+    private func setPickerView() {
+        if let savedIndex = userPreference.getIndex() {
+            bestSellerView.pickerView.selectRow(savedIndex, inComponent: 0, animated: true)
+        }
     }
     
     private func loadBookTypes() {
@@ -63,23 +82,24 @@ class BestSellerViewController: UIViewController {
             case .failure(let appError):
                 print("Error: \(appError)")
             case .success(let list):
-                self?.list = list
+                self?.categoryList = list.map{$0.listName}.sorted()
             }
         }
     }
     
-    private func getSection(with category: String) {
+    private func getIndex() {
         if let categoryName = userPreference.getSectionName() {
-            if categoryName != self.sectionName {
-                loadBooks(with: categoryName)
-                self.sectionName = categoryName
-            } else {
-                loadBooks(with: categoryName)
+            if let index = categoryList.firstIndex(of: categoryName) {
+                bestSellerView.pickerView.selectRow(index, inComponent: 0, animated: true)
             }
-        } else {
-            loadBooks(with: sectionName)
         }
     }
+    
+     private func setSection() {
+         if let section = userPreference.getSectionName() {
+             loadBooks(with: section)
+         }
+     }
     
     private func loadBooks(with category: String) {
             NYTAPIClient.fetchBooks(for: category) { (result) in
@@ -131,22 +151,26 @@ extension BestSellerViewController : UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return list.count
+        return categoryList.count
     }
 }
 
 extension BestSellerViewController : UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return list[row].displayName
+        return categoryList[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        category = list[row].listNameEncoded
+        category = categoryList[row]
         loadBooks(with: category)
     }
 }
 
 extension BestSellerViewController: UserPreferenceDelegate {
+    func didChangeIndex(_ userPreference: UserPreference, index: Int) {
+        getIndex()
+    }
+    
     func didChangeBooksSection(_ userPreference: UserPreference, selectedList: String) {
         loadBooks(with: selectedList)
     }
