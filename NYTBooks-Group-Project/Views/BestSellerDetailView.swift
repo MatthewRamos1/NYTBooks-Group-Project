@@ -36,7 +36,7 @@ class BestSellerDetailView: UIView {
         return button
     }()
     
-    public lazy var googleButton: UIButton = {
+    public lazy var iBooksLogo: UIButton = {
         let button = UIButton()
         button.setBackgroundImage(UIImage(named: "appleLogo"), for: .normal)
         button.tag = 1
@@ -88,11 +88,11 @@ class BestSellerDetailView: UIView {
     
     private func setupButtons() {
         addSubview(amazonButton)
-        addSubview(googleButton)
+        addSubview(iBooksLogo)
         addSubview(barnesAndNoblesButton)
         addSubview(localButton)
         amazonButton.translatesAutoresizingMaskIntoConstraints = false
-        googleButton.translatesAutoresizingMaskIntoConstraints = false
+        iBooksLogo.translatesAutoresizingMaskIntoConstraints = false
         barnesAndNoblesButton.translatesAutoresizingMaskIntoConstraints = false
         localButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -100,11 +100,11 @@ class BestSellerDetailView: UIView {
             amazonButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
             amazonButton.heightAnchor.constraint(equalToConstant: 50),
             amazonButton.widthAnchor.constraint(equalToConstant: 50),
-            googleButton.topAnchor.constraint(equalTo: amazonButton.bottomAnchor, constant: 8),
-            googleButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            googleButton.heightAnchor.constraint(equalTo: amazonButton.heightAnchor),
-            googleButton.widthAnchor.constraint(equalTo: amazonButton.widthAnchor),
-            barnesAndNoblesButton.topAnchor.constraint(equalTo: googleButton.bottomAnchor, constant: 8),
+            iBooksLogo.topAnchor.constraint(equalTo: amazonButton.bottomAnchor, constant: 8),
+            iBooksLogo.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            iBooksLogo.heightAnchor.constraint(equalTo: amazonButton.heightAnchor),
+            iBooksLogo.widthAnchor.constraint(equalTo: amazonButton.widthAnchor),
+            barnesAndNoblesButton.topAnchor.constraint(equalTo: iBooksLogo.bottomAnchor, constant: 8),
             barnesAndNoblesButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
             barnesAndNoblesButton.heightAnchor.constraint(equalTo: amazonButton.heightAnchor),
             barnesAndNoblesButton.widthAnchor.constraint(equalTo: amazonButton.widthAnchor),

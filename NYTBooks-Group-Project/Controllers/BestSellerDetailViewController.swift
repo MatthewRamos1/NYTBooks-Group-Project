@@ -35,7 +35,7 @@ class BestSellerDetailViewController: UIViewController {
         updateUI()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Favorite", style: .plain, target: self, action: #selector(favoriteButtonWasPressed(_:)))
         bestSellerDetailView.amazonButton.addTarget(self, action: #selector(safariButtonPressed(_:)), for: .touchUpInside)
-        bestSellerDetailView.googleButton.addTarget(self, action: #selector(safariButtonPressed(_:)), for: .touchUpInside)
+        bestSellerDetailView.iBooksLogo.addTarget(self, action: #selector(safariButtonPressed(_:)), for: .touchUpInside)
         bestSellerDetailView.barnesAndNoblesButton.addTarget(self, action: #selector(safariButtonPressed(_:)), for: .touchUpInside)
         bestSellerDetailView.localButton.addTarget(self, action: #selector(safariButtonPressed(_:)), for: .touchUpInside)
     }
