@@ -62,10 +62,11 @@ class NYTTabBarController: UITabBarController {
 
     func removeAnimationScreen() {
         animationView.removeFromSuperview()
+         print("pushing pod")
     }
 
     
     
-    
+   
     
 }
