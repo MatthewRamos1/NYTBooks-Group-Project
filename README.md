@@ -13,8 +13,13 @@ Use lottiefiles.com  library for premade animations.
 # CocoaPods
 
 Add the pod to your Podfile:
+
 pod 'lottie-ios'
+
 And then run:
+
 pod install
+
 After installing the cocoapod into your project import Lottie with
+
 import Lottie
