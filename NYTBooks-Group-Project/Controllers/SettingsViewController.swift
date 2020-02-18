@@ -26,9 +26,7 @@ class SettingsViewController: UIViewController {
     public var categoryList = [String]() {
         didSet {
             DispatchQueue.main.async {
-//                let index = self.getIndex()
                 self.settingsView.pickerView.reloadAllComponents()
-//                self.settingsView.pickerView.selectRow(index, inComponent: 0, animated: true)
                 self.setPickerView()
             }
         }

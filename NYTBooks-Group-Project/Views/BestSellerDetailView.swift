@@ -26,6 +26,7 @@ class BestSellerDetailView: UIView {
     public lazy var textView: UITextView = {
         let textView = UITextView()
         textView.text = "Test"
+        textView.textAlignment = .center
         textView.isEditable = false
         return textView
     }()
@@ -39,7 +40,7 @@ class BestSellerDetailView: UIView {
     
     public lazy var iBooksLogo: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(named: "appleLogo"), for: .normal)
+        button.setBackgroundImage(UIImage(named: "ibooksLogo"), for: .normal)
         button.tag = 1
         return button
     }()
@@ -69,6 +70,7 @@ class BestSellerDetailView: UIView {
     }
     
     private func commonInit() {
+        setupAmazonButton()
         setupButtons()
         setupImageView()
         setupLabel()
@@ -86,7 +88,15 @@ class BestSellerDetailView: UIView {
         
         ])
     }
-    
+    private func setupAmazonButton() {
+        addSubview(amazonButton)
+        NSLayoutConstraint.activate([
+            amazonButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            amazonButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            amazonButton.heightAnchor.constraint(equalToConstant: 50),
+            amazonButton.widthAnchor.constraint(equalToConstant: 50)
+        ])
+    }
     private func setupButtons() {
         addSubview(amazonButton)
         addSubview(iBooksLogo)
@@ -97,10 +107,6 @@ class BestSellerDetailView: UIView {
         barnesAndNoblesButton.translatesAutoresizingMaskIntoConstraints = false
         localButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            amazonButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-            amazonButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            amazonButton.heightAnchor.constraint(equalToConstant: 50),
-            amazonButton.widthAnchor.constraint(equalToConstant: 50),
             iBooksLogo.topAnchor.constraint(equalTo: amazonButton.bottomAnchor, constant: 8),
             iBooksLogo.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
             iBooksLogo.heightAnchor.constraint(equalTo: amazonButton.heightAnchor),
@@ -131,7 +137,7 @@ class BestSellerDetailView: UIView {
         textView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             textView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 8),
-            textView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 8),
+            textView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -8),
             textView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8),
             textView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 8)
         

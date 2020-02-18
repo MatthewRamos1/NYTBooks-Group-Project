@@ -48,12 +48,15 @@ class FavoritesViewController: UIViewController {
         loadSaved()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        loadSaved()
+    }
+    
     private func loadSaved() {
         do {
             favorites = try dataPersistence.loadItems()
-            print("blank")
         } catch {
-            print("error")
+            showAlert(title: "Error", message: "Couldn't load items: \(error)")
         }
     }
     

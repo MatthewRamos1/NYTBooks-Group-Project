@@ -46,7 +46,7 @@ class BestSellerDetailViewController: UIViewController {
     
     func updateUI() {
         bestSellerDetailView.label.text = book?.author
-        bestSellerDetailView.textView.text = book?.description
+        bestSellerDetailView.textView.text =  "\(book.title)\n \(book.description) "
         bestSellerDetailView.detailImageView.image = detailImage
     }
     
@@ -62,12 +62,17 @@ class BestSellerDetailViewController: UIViewController {
     }
     
     func saveFavorite(favorite: Favorite) {
+        if dataPeristence.hasItemBeenSaved(favorite) {
+            showAlert(title: "Failure", message: "This book has already been saved.")
+            return
+        } else {
         do {
            try dataPeristence.createItem(favorite)
             showAlert(title: "Success", message: "Favorite has been saved to collection.")
         } catch {
             fatalError("Couldn't save favorite: \(error)")
         }
+    }
     }
     
     @objc
